@@ -1,0 +1,1 @@
+import {Router} from 'express'; import {createPlaylist,listPlaylists} from '../controllers/playlistController.js'; import {protect} from '../middleware/authMiddleware.js'; const r=Router(); r.use(protect); r.get('/',listPlaylists); r.post('/',createPlaylist); export default r;

@@ -1,0 +1,1 @@
+import mongoose from 'mongoose'; const schema=new mongoose.Schema({title:String,artist:String,album:String,cover:String,duration:String,link:String,audioUrl:String}); export default mongoose.model('Music',schema);

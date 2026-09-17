@@ -1,0 +1,1 @@
+import Music from '../models/Music.js'; import {music} from '../data/seedData.js'; export async function getMusic(req,res,next){try{if(Music.db.readyState===1){const d=await Music.find();return res.json(d.length?d:music)}res.json(music)}catch(e){next(e)}}

@@ -1,0 +1,3 @@
+import Movie from '../models/Movie.js'; import {movies} from '../data/seedData.js';
+export async function getMovies(req,res,next){try{if(Movie.db.readyState===1){const data=await Movie.find();return res.json(data.length?data:movies)}res.json(movies)}catch(e){next(e)}}
+export async function getMovie(req,res,next){try{if(Movie.db.readyState===1){const x=await Movie.findOne({$or:[{_id:req.params.id},{id:req.params.id} ]});if(x)return res.json(x)}const x=movies.find(m=>m.id===req.params.id);x?res.json(x):res.status(404).json({message:'Movie not found'})}catch(e){const x=movies.find(m=>m.id===req.params.id);x?res.json(x):next(e)}}

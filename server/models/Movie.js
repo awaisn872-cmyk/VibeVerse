@@ -1,0 +1,1 @@
+import mongoose from 'mongoose'; const schema=new mongoose.Schema({title:String,year:Number,genre:String,rating:Number,poster:String,backdrop:String,description:String,link:String}); export default mongoose.model('Movie',schema);
